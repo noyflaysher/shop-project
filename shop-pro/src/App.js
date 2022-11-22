@@ -32,7 +32,7 @@ function App() {
     },
     {
       id: "p3",
-      title: "BRONZING POWDER",
+      title: "Bronzing Powder",
       price: 65.99,
       image: [
         "https://sdcdn.io/mac/il/mac_sku_M51504_1x1_1.png?width=1080&height=1080",

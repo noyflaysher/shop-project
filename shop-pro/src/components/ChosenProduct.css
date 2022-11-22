@@ -10,6 +10,7 @@
 .chosenProduct__title {
   margin-top: 2rem;
   font-size: 5rem;
+  text-transform: capitalize;
   font-weight: 700;
 }
 
@@ -57,6 +58,6 @@ li {
   top: -0.3rem;
 }
 
-.chosenProduct__img {
+/* .chosenProduct__img {
   transform: scale(0.8);
-}
+} */

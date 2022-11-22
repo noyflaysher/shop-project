@@ -14,7 +14,12 @@ function ChosenProduct(props) {
       <div className="chosenProduct__container">
         <div className="chosenProduct__title">{product.title}</div>
         <div className="chosenProduct__images">
-          <Carousel className="carousel">
+          <Carousel
+            className="carousel"
+            centerMode
+            infiniteLoop
+            useKeyboardArrows
+          >
             {product.image.map((image) => (
               <img src={image} className="chosenProduct__img" />
             ))}
@@ -36,7 +41,6 @@ function ChosenProduct(props) {
         </div>
 
         <Link to="/" className="button__back">
-          {" "}
           back to shopping cart
         </Link>
       </div>
