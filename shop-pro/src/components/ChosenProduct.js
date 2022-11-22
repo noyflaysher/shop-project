@@ -7,9 +7,10 @@ import "./ChosenProduct.css"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function ChosenProduct(props) {
+  
     const index=useParams().index;
-    {console.log(index);}
     const product=props.items.find(p=> p.id==index);
+
   return (
     <>
     <div className='chosenProduct__container'>
