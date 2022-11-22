@@ -21,7 +21,7 @@ function ChosenProduct(props) {
           </Carousel>
         </div>
         <div className="chosenProduct__details">
-          <div className="chosenProduct__price">{product.price}</div>
+          <div className="chosenProduct__price">{product.price}$</div>
           <div className="chosenProduct__description">
             {product.description}
           </div>
