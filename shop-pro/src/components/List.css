@@ -1,0 +1,12 @@
+.List{
+    margin:auto;
+    margin-top:5rem;
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h1{
+    margin-bottom: 3rem;
+}

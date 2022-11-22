@@ -1,0 +1,15 @@
+.chosenProduct__container{
+    width:40%;
+    background-color: white;
+    margin:auto
+}
+
+.chosenProduct__title{
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+.chosenProduct__images{
+    display:flex;
+    
+}
