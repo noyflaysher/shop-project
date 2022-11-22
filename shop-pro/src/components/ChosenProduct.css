@@ -1,10 +1,14 @@
 .chosenProduct__container{
     width:40%;
     background-color: white;
-    margin:auto
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
 }
 
 .chosenProduct__title{
+    margin-top: 2rem;
     font-size: 5rem;
     font-weight: 700;
 }
@@ -12,4 +16,11 @@
 .chosenProduct__images{
     display:flex;
     
+}
+.carousel{
+height: 50rem;
+}
+
+.chosenProduct__details{
+    margin-top: 9rem;
 }

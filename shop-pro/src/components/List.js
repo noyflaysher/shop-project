@@ -10,7 +10,7 @@ function List(props) {
         {props.items.map((product)=>{
             return (
                 <>
-                <Product id={product.id} title={product.title} price={product.price} image={product.image} />
+                <Product id={product.id} title={product.title} price={product.price} image={product.image} store={product.store} description={product.description}/>
            </> )
            
         })}

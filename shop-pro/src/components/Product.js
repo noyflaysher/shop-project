@@ -11,7 +11,7 @@ function Product(props) {
             <div className="product__title">{props.title}</div>
             <div className="product__price">price : {props.price} $</div>
         </div>
-        <img src={props.image} className="product__img"/>
+        <img src={props.image[1]} className="product__img"/>
     </div>
     </Link>
 
