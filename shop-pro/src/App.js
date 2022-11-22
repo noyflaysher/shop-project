@@ -44,6 +44,20 @@ function App() {
       description:
         "A powder bronzer that gives the skin a radiant and natural tan",
     },
+    {
+      id: "p4",
+      title: "Mascara",
+      price: 29.99,
+      image: [
+        "https://sdcdn.io/mac/us/mac_sku_SN4P01_1x1_0.png?width=1080&height=1080",
+        "https://sdcdn.io/mac/us/mac_sku_SN4P01_1x1_2.png?width=1080&height=1080",
+        "https://sdcdn.io/mac/us/mac_sku_SN4P01_1x1_1.png?width=1080&height=1080",
+        "https://sdcdn.io/mac/il/mac_sku_SLEH01_1x1_5.png?width=1080&height=1080",
+      ],
+      store: ["Rehovot mall", "Ramat Aviv", "Mamilla Mall"],
+      description:
+        "An endlessly buildable, clump-resistant mascara that stacks on infinite layers of volume and length",
+    },
   ];
   return (
     <div className="App">

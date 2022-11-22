@@ -31,7 +31,7 @@ function ChosenProduct(props) {
             {product.description}
           </div>
           <div className="chosenProduct__store">
-            <h3>Where you can find?</h3>
+            <h3>Where can you find?</h3>
             <ul>
               {product.store.map((s) => (
                 <li>{s}</li>
