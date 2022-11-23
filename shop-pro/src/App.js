@@ -58,6 +58,20 @@ function App() {
       description:
         "An endlessly buildable, clump-resistant mascara that stacks on infinite layers of volume and length",
     },
+    {
+      id: "p5",
+      title: "MATTE LIPSTICK",
+      price: 39.99,
+      image: [
+        "https://sdcdn.io/mac/il/mac_sku_M2LP37_1x1_1.png?width=1080&height=1080",
+        "https://sdcdn.io/mac/il/mac_sku_M2LP37_1x1_0.png?width=1080&height=1080",
+        "https://sdcdn.io/mac/il/mac_sku_M2LP37_1x1_3.png?width=1080&height=1080",
+        "https://sdcdn.io/mac/il/mac_sku_M2LP37_1x1_6.png?width=1080&height=1080",
+      ],
+      store: ["Hazahav mall", "Ramat Aviv", "Holon Mall"],
+      description:
+        "A lipstick with a rich and creamy formula. Glides easily on the lips and has a powerful shade, full matte color coverage.",
+    },
   ];
   return (
     <div className="App">

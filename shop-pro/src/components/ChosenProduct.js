@@ -1,6 +1,9 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
+import { BiArrowBack } from 'react-icons/bi';
+
+
 
 import "./ChosenProduct.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -12,6 +15,10 @@ function ChosenProduct(props) {
   return (
     <>
       <div className="chosenProduct__container">
+      <Link to="/" >
+        <BiArrowBack className="chosenProduct__back" />
+        </Link>
+        
         <div className="chosenProduct__title">{product.title}</div>
         <div className="chosenProduct__images">
           <Carousel
@@ -41,7 +48,7 @@ function ChosenProduct(props) {
         </div>
 
         <Link to="/" className="button__back">
-          back to shopping cart
+        <BiArrowBack className="button__back-icon" />back to shopping cart
         </Link>
       </div>
     </>
