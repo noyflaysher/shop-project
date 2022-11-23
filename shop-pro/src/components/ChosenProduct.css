@@ -85,3 +85,17 @@ li {
 .carousel .control-next.control-arrow:before {
   border-left: 8px solid #2a0f0f;
 }
+
+
+
+@media only screen and (max-width: 900px) {
+  .carousel.carousel-slider {
+    height: 60%;
+  }
+
+  .chosenProduct__details {
+    margin-top: -10rem;
+  }
+}
+
+
