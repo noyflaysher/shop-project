@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const uniqueValidator = require("mongoose-unique-validator");
 
 const shopSchema = new Schema({
-  title: { type: String, required: true },
+  title: { type: String, required: true, unique: true },
   price: { type: Number, required: true },
   description: { type: String, required: true },
   images: [{ type: String, required: true }],

@@ -2,8 +2,10 @@ const express = require("express");
 const shopController = require("../controller/shop-controller");
 const router = express.Router();
 
-router.post("/add", shopController.addTocart);
+router.post("/addProduct", shopController.addProduct);
 
-router.get("/get", shopController.getCart);
+router.post("/addToCart", shopController.addTocart);
+
+router.post("/getCart", shopController.getCart);
 
 module.exports = router;

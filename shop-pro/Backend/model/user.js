@@ -8,8 +8,6 @@ const userSchema = new Schema({
   shoppingCart: [
     {
       product: { type: mongoose.Types.ObjectId, required: true, ref: "Shop" },
-    },
-    {
       amount: { type: Number, require: true },
     },
   ],
