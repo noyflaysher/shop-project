@@ -1,5 +1,5 @@
-const addToShooping = async (req, res, next) => {};
-const getShopping = async (req, res, next) => {};
+const addTocart = async (req, res, next) => {};
+const getCart = async (req, res, next) => {};
 
-exports.addToShooping = addToShooping;
-exports.getShopping = getShopping;
+exports.addTocart = addTocart;
+exports.getCart = getCart;

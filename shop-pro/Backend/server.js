@@ -1,9 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-
 const userRoute = require("./routes/user-route");
-
 const shopRoute = require("./routes/shop-route");
+const mongoose = require("mongoose");
+
+const app = express();
 
 app.use(bodyParser.json()); //tells the system that you want json to be used.
 
@@ -17,12 +18,8 @@ app.use((req, res, next) => {
   next();
 });
 
-/* *** routers *** */
-
 app.use("/user", userRoute);
 app.use("/shop", shopRoute);
-
-///////
 
 app.use((req, res, next) => {
   const error = new HttpError("Could  not find this route", 404);
@@ -39,9 +36,9 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://mayakoma:mayakoma7@cluster0.2rxt4ia.mongodb.net/mern?retryWrites=true&w=majority"
+    "mongodb+srv://mayakoma:mayakoma7@cluster0.uiefzuv.mongodb.net/shopping?retryWrites=true&w=majority"
   )
   .then(() => {
-    server.listen(3000, () => console.log("listen to port 3000"));
+    app.listen(5000, () => console.log("listen to port 5000"));
   })
   .catch((err) => console.log(err));
