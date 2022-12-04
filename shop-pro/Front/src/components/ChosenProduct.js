@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import { BiArrowBack } from 'react-icons/bi';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 import "./ChosenProduct.css";
@@ -11,6 +11,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 function ChosenProduct(props) {
   const index = useParams().index;
   const product = props.items.find((p) => p.id == index);
+
+  const onClickHandler=()=>{
+    console.log("add to cart");
+    //need to add to db
+  }
 
   return (
     <>
@@ -47,8 +52,13 @@ function ChosenProduct(props) {
           </div>
         </div>
 
-        <Link to="/" className="button__back">
-        <BiArrowBack className="button__back-icon" />back to shopping cart
+        <button onClick={onClickHandler} className="chosenProduct__button">
+            Add to cart
+            <ShoppingCartIcon className="basken__icon"/>
+        </button>
+
+        <Link to="/" className="chosenProduct__button">
+          <BiArrowBack className="button__back-icon" />back to shopping cart
         </Link>
       </div>
     </>

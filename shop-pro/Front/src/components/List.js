@@ -5,7 +5,7 @@ import Product from "./Product";
 function List(props) {
   return (
     <div className="List">
-      <h1>Shopping Cart</h1>
+      <h1>MakeUp Shopping Store</h1>
       {props.items.map((product) => {
         return (
           <>

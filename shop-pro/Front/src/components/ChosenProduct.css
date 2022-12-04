@@ -56,7 +56,8 @@ li {
   text-transform: capitalize;
 }
 
-.button__back {
+.chosenProduct__button {
+  cursor: pointer;
   margin: auto;
   background-color: #9c9b9a;
   font-size: 2rem;
@@ -68,9 +69,10 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: inherit;
 }
 
-.button__back:hover {
+.chosenProduct__button:hover {
   box-shadow: 0rem 0.7rem 0.5rem rgb(131, 125, 125);
   top: -0.3rem;
 }
@@ -84,6 +86,10 @@ li {
 
 .carousel .control-next.control-arrow:before {
   border-left: 8px solid #2a0f0f;
+}
+
+.basken__icon{
+  margin-left:0.8rem; ;
 }
 
 

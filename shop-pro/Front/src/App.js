@@ -2,6 +2,8 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import List from "./components/List";
 import ChosenProduct from "./components/ChosenProduct";
+import Checkout from "./components/Checkout";
+import Navigation from "./components/Navigation";
 
 function App() {
   const Products = [
@@ -81,7 +83,16 @@ function App() {
             path="/"
             element={
               <div>
+                <Navigation/>
                 <List items={Products} />
+              </div>
+            }
+          />
+          <Route
+            path="/checkout"
+            element={
+              <div>
+                <Checkout/>
               </div>
             }
           />
@@ -89,6 +100,7 @@ function App() {
             path="/:index"
             element={
               <div>
+                <Navigation/>
                 <ChosenProduct items={Products} />
               </div>
             }

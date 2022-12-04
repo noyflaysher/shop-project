@@ -1,0 +1,27 @@
+.subtotal{
+    border: 0.3rem black solid;
+    padding:1.5rem;
+    background-color: white;
+}
+
+.checkout__button{
+    font-weight: 600;
+    cursor: pointer;
+    margin: auto;
+    background-color:rgb(253, 253, 253);
+    font-size: 2rem;
+    margin-top: 2rem;
+    border-radius: 10rem;
+    padding: 1rem;
+    border: 0.2rem solid  #000000;
+    box-shadow: 0rem 0.5rem 0.5rem rgb(131, 125, 125);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: inherit;
+}
+
+.checkout__button:hover {
+    box-shadow: 0rem 0.7rem 0.5rem rgb(131, 125, 125);
+    top: -0.3rem;
+  }
