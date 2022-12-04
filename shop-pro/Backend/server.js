@@ -1,7 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
-const shopRouter = require("./routes/shop-route");
+const userRoute = require("./routes/user-route");
+
+const shopRoute = require("./routes/shop-route");
 
 app.use(bodyParser.json()); //tells the system that you want json to be used.
 
@@ -17,7 +19,8 @@ app.use((req, res, next) => {
 
 /* *** routers *** */
 
-app.use("/shop", shopRouter);
+app.use("/user", userRoute);
+app.use("/shop", shopRoute);
 
 ///////
 
