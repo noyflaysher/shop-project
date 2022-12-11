@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import "./Subtotal.css";
 
 function Subtotal() {
+  const nameRef=useRef("");
+  const emailRef=useRef("");
   return (
     <div className='subtotal'>
         <p>
@@ -9,8 +11,8 @@ function Subtotal() {
         </p>
         <label className='subtotal__name'>Name</label>
         <input className='subtotal__name-input' type="text" ref={nameRef} placeholder="enter your name"/>
-        <label subtotal__email>Email</label>
-        <input subtotal__email-input type="text" ref={nameRef} placeholder="enter your email"/>
+        <label className="subtotal__email">Email</label>
+        <input className="subtotal__email-input" type="text" ref={emailRef} placeholder="enter your email"/>
         <button className='checkout__button'>
             Checkout
         </button>
