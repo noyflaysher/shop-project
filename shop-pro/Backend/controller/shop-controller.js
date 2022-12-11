@@ -106,6 +106,26 @@ const addTocart = async (req, res, next) => {
   res.status(200).json({ message: "add product" });
 };
 
+const getProduct = async (req, res, next) => {
+  const id=req.params.id;
+  let product;
+  try{
+    product = await Shop.findById(id);
+  }
+  catch (err) {
+    const error = new HttpError(
+      "Something went wrong, could not find a product 2.",
+      500
+    );
+    return next(error);
+  }
+  if(!product){
+    res.status(404).send("Could not find product.");
+    return;
+  }
+  res.json({ product:product });
+}
+
 const getCart = async (req, res, next) => {
   const { email } = req.body;
   let user;
@@ -132,3 +152,4 @@ exports.addTocart = addTocart;
 exports.getCart = getCart;
 exports.addProduct = addProduct;
 exports.getProductsList=getProductsList;
+exports.getProduct=getProduct;
