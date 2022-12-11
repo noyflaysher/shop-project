@@ -32,7 +32,7 @@ function ChosenProduct(props) {
             infiniteLoop
             useKeyboardArrows
           >
-            {product.image.map((image) => (
+            {product.images.map((image) => (
               <img src={image} className="chosenProduct__img" />
             ))}
           </Carousel>
@@ -45,7 +45,7 @@ function ChosenProduct(props) {
           <div className="chosenProduct__store">
             <h3>Where can you find?</h3>
             <ul>
-              {product.store.map((s) => (
+              {product.stores.map((s) => (
                 <li>{s}</li>
               ))}
             </ul>

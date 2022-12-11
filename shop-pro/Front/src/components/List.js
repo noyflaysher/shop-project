@@ -13,8 +13,8 @@ function List(props) {
               id={product.id}
               title={product.title}
               price={product.price}
-              image={product.image}
-              store={product.store}
+              images={product.images}
+              stores={product.stores}
               description={product.description}
             />
           </>
