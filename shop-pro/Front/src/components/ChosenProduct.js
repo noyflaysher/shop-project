@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import { BiArrowBack } from 'react-icons/bi';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useStateValue } from "./StateProvider";
 
 
 import "./ChosenProduct.css";
@@ -12,11 +13,23 @@ function ChosenProduct(props) {
   const [product,setProduct]=useState("");
   const index = useParams().index;
   const productFromList = props.items.find((p) => p.id == index);
+  const [state, dispatch]= useStateValue();
 
-  const onClickHandler=()=>{
-    console.log("add to cart");
-    //need to add to db
-  }
+  const addToBasket=()=>{
+    dispatch({
+        type: "ADD_TO_BASKET",
+            item: {
+                id: product.id,
+                title:product.title,
+                price:product.price,
+                description:product.description,
+                images: product.images,
+                stores: product.stores,
+            },
+
+    });
+   };
+  
 
   const getProduct =()=>{
     fetch(`http://localhost:5000/shop/getProduct/${index}`).then((response)=>(
@@ -45,9 +58,9 @@ function ChosenProduct(props) {
             infiniteLoop
             useKeyboardArrows
           >
-            {product.images.map((image) => (
+            {product.images?.map((image) => (
               <img src={image} className="chosenProduct__img" />
-            )) || productFromList.images.map((image) => (
+            )) || productFromList.images?.map((image) => (
               <img src={image} className="chosenProduct__img" />
             ))}
           </Carousel>
@@ -60,16 +73,16 @@ function ChosenProduct(props) {
           <div className="chosenProduct__store">
             <h3>Where can you find?</h3>
             <ul>
-              {product.stores.map((s) => (
+              {product.stores?.map((s) => (
                 <li>{s}</li>
-              )) || productFromList.stores.map((s) => (
+              )) || productFromList.stores?.map((s) => (
                 <li>{s}</li>
               ))}
             </ul>
           </div>
         </div>
 
-        <button onClick={onClickHandler} className="chosenProduct__button">
+        <button onClick={addToBasket} className="chosenProduct__button">
             Add to cart
             <ShoppingCartIcon className="basken__icon"/>
         </button>

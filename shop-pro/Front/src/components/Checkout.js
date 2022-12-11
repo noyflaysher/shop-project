@@ -5,9 +5,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Checkout_Product from './Checkout_Product';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { Link } from "react-router-dom";
+import { useStateValue } from "./StateProvider";
 
 
 function Checkout() {
+  const [{basket}, dispatch] = useStateValue();
 
     const checkout_pro = [
         {
@@ -93,10 +95,11 @@ function Checkout() {
             <h2 className="checkout__title">
                 Your Shopping Basket
             </h2>
-            {checkout_pro.map(item=>
+        
+            {basket.map(item=>
                 <Checkout_Product
                     title = {item.title}
-                    image = {item.image[0]}
+                    image = {item.images[0]}
                     price = {item.price}
                     />)}
         </div>
