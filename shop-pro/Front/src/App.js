@@ -4,9 +4,10 @@ import List from "./components/List";
 import ChosenProduct from "./components/ChosenProduct";
 import Checkout from "./components/Checkout";
 import Navigation from "./components/Navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [productsList,setProductsList]=useState([]);
   const Products = [
     {
       id: "p1",
@@ -77,26 +78,22 @@ function App() {
     },
   ];
 
+  
   const getProducts=()=>{
-
+    fetch("http://localhost:5000/shop/getProductsList").then((response)=>(
+      response.ok ? response.json() : { products: [] })).then((data) => {
+        setProductsList(data.products);
+        console.log(data);
+        console.log(data.products);
+      });
+  
   }
 
-  fetch("http://localhost:5000/shop/myRecipe", requestOption)
-    .then((response) => (response.ok ? response.json() : { recipe: [] }))
-    .then((data) => {
-      setUserRecipes(data.recipe.map((r) => r.title));
-    });
-  fetch("http://localhost:3000/recipe/arrays", requestOption)
-    .then((response) => (response.ok ? response.json() : { recipe: [] }))
-    .then((data) => {
-      setUserBookmarks(data.recipe);
-      setResult(data.recipe);
-    });
-}
 
   useEffect(()=>{
-
+    getProducts();
   },[])
+
   return (
     <div className="App">
       <Router>
@@ -106,7 +103,7 @@ function App() {
             element={
               <div>
                 <Navigation/>
-                <List items={Products} />
+                <List items={productsList} />
               </div>
             }
           />
@@ -123,7 +120,7 @@ function App() {
             element={
               <div>
                 <Navigation/>
-                <ChosenProduct items={Products} />
+                <ChosenProduct items={productsList} />
               </div>
             }
           />
