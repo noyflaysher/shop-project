@@ -4,6 +4,7 @@ import List from "./components/List";
 import ChosenProduct from "./components/ChosenProduct";
 import Checkout from "./components/Checkout";
 import Navigation from "./components/Navigation";
+import { useEffect } from "react";
 
 function App() {
   const Products = [
@@ -75,6 +76,27 @@ function App() {
         "A lipstick with a rich and creamy formula. Glides easily on the lips and has a powerful shade, full matte color coverage.",
     },
   ];
+
+  const getProducts=()=>{
+
+  }
+
+  fetch("http://localhost:5000/shop/myRecipe", requestOption)
+    .then((response) => (response.ok ? response.json() : { recipe: [] }))
+    .then((data) => {
+      setUserRecipes(data.recipe.map((r) => r.title));
+    });
+  fetch("http://localhost:3000/recipe/arrays", requestOption)
+    .then((response) => (response.ok ? response.json() : { recipe: [] }))
+    .then((data) => {
+      setUserBookmarks(data.recipe);
+      setResult(data.recipe);
+    });
+}
+
+  useEffect(()=>{
+
+  },[])
   return (
     <div className="App">
       <Router>
