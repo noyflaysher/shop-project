@@ -44,5 +44,6 @@
   .subtotal__details input{
     font-family: inherit;
     height: 2.5rem;
+    width: 40rem;
     padding: 0.5rem;
   }

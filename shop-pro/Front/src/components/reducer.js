@@ -1,10 +1,8 @@
-import { startTransition } from "react";
+
 
 export const initialState = {
     basket: [],
 };
-
-//selector
 
 export const getBasketTotal=(basket)=>{
     return (basket?.reduce((amount,item)=> (item.price*item.amount)+amount,0));
@@ -63,11 +61,7 @@ const reducer = (state, action) => {
             if(index3>=0 && state.basket[index3].amount==1) //remove
             {
                 let newBasket = [...state.basket];
-
-              
-                    newBasket.splice(index3, 1);
-                
-    
+                newBasket.splice(index3, 1);
                 return {
                     ...state,
                     basket: newBasket
@@ -81,13 +75,11 @@ const reducer = (state, action) => {
                     basket: [...state.basket],
                 }
             }
-            
             else {
                 console.warn(
                     `Can't remove product(title: ${action.title}) as its not in the basket!`
                 )
             }
-
         default:
             return state;
     }
