@@ -31,7 +31,10 @@ function App() {
             path="/"
             element={
               <div>
-                <List items={productsList} />
+                <>
+                  <Navigation />
+                  <List items={productsList} />
+                </>
               </div>
             }
           />
