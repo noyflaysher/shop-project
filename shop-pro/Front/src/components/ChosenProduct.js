@@ -21,6 +21,7 @@ function ChosenProduct(props) {
             item: {
                 id: product.id,
                 title:product.title,
+                amount:1,
                 price:product.price,
                 description:product.description,
                 images: product.images,

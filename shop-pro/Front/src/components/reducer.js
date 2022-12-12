@@ -11,6 +11,17 @@ export const getBasketTotal=(basket)=>{
 const reducer = (state, action) => {
     switch(action.type) {
         case "ADD_TO_BASKET":
+            state.basket.map((item)=>{
+                console.log('enterrrr');
+                if(item.title===action.title){
+                    console.log("this item is in the busket");
+                    item.amount++;
+                    return{
+                        ...state,
+                        basket: [...state.basket],
+                    }
+                }
+            })
             return {
                 ...state,
                 basket: [...state.basket, action.item],
@@ -18,7 +29,7 @@ const reducer = (state, action) => {
         
         case "REMOVE_FROM_BASKET":
             const index = state.basket.findIndex(
-                (basketItem) => basketItem.id === action.id
+                (basketItem) => basketItem.title === action.title
             );
 
             let newBasket = [...state.basket];
@@ -27,7 +38,7 @@ const reducer = (state, action) => {
                 newBasket.splice(index, 1);
             } else {
                 console.warn(
-                    `Can't remove product(id: ${action.id}) as its not in the basket!`
+                    `Can't remove product(title: ${action.title}) as its not in the basket!`
                 )
             }
 
