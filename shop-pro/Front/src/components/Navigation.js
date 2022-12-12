@@ -2,9 +2,11 @@ import React from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import "./Navigation.css"
 import { Link } from "react-router-dom";
+import {useStateValue} from "./StateProvider";
 
 
 function Navigation() {
+  const [{basket},dispatch]=useStateValue();
   return (
     <div className='navigation'>
         <p>MakeUp Shop</p>
@@ -16,7 +18,7 @@ function Navigation() {
                 <ShoppingCartIcon />
             </span>
             <span>Your Cart</span>
-            <span className="shopping__amount">0</span>
+            <span className="shopping__amount">{basket.length}</span>
         </button>
         </Link>
     </div>

@@ -1,8 +1,17 @@
 import React from 'react';
 import "./Checkout_Product.css";
+import { useStateValue } from "./StateProvider";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 function Checkout_Product({title,image,price}) {
+  const [{basket}, dispatch] = useStateValue();
+  const removeFromBasket=()=>{
+    dispatch({
+      type:"REMOVE_FROM_BASKET",
+      title:title,
+    })
+  }
   return (
     <div className="checkoutProduct">
         
@@ -19,8 +28,9 @@ function Checkout_Product({title,image,price}) {
                 <small>$</small>
                 <strong>{price}</strong>
             </p>
-            {/* <button title="Remove from basket">remove</button> */}
+            <button className='checkoutProduct__remove' onClick={removeFromBasket} title="Remove from basket">remove <DeleteIcon fontSize="huge"/></button>
         </div>
+        
     </div>
   )
 }

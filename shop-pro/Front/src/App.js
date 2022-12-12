@@ -100,8 +100,11 @@ function App() {
             path="/"
             element={
               <div>
-                <Navigation/>
-                <List items={productsList} />
+                <>
+                  <Navigation/>
+                  <List items={productsList} />
+                </>
+
               </div>
             }
           />
