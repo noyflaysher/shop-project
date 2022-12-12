@@ -50,7 +50,10 @@ function App() {
             path="/:index"
             element={
               <div>
+                <>
+                <Navigation />
                 <ChosenProduct items={productsList} />
+                </>
               </div>
             }
           />

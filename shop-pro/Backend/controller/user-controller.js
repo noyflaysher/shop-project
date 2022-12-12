@@ -56,7 +56,11 @@ const login = async (req, res, next) => {
     .json({ message: "login", user: existingUser.toObject({ getters: true }) });
 };
 
-const checkout= async (req, res, next)=>{}
+const checkout= async (req, res, next)=>{
+
+
+  
+}
 
 exports.login = login;
 exports.signup = signup;

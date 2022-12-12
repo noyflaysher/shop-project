@@ -10,7 +10,9 @@ function Navigation() {
   const [{basket},dispatch]=useStateValue();
   return (
     <div className='navigation'>
-        <p>MakeUp Shop</p>
+      <Link to='/'><p className='logo'>MakeUp Shop</p></Link>
+     
+      
         <Link to="/checkout" className="toCart_btn">
         
         

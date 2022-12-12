@@ -4,7 +4,7 @@ const uniqueValidator = require("mongoose-unique-validator");
 
 const userSchema = new Schema({
   email: { type: String, require: true, unique: true },
-  password: { type: String, required: true, minlength: 7 },
+  // password: { type: String, required: true, minlength: 7 },
   shoppingCart: [
     {
       product: { type: mongoose.Types.ObjectId, required: true, ref: "Shop" },

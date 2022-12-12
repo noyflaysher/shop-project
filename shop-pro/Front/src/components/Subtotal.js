@@ -16,15 +16,33 @@ function Subtotal() {
   const [{basket},dispatch] = useStateValue();
   const [open,setOpen]=useState(false);
 
+  const createFinalCart = () => {
+    const finalCart= new Array();
+      if(basket!=null){
+        basket.forEach((item) => {
+          finalCart.push({
+             product: item.title,
+            amount: item.amount,
+          });
+        });
+      }else{
+        alert("Your cart is empty. Please add some products");
+      }
+    return finalCart;
+  };
+
   const checkoutDone=async()=>{
     console.log('check');
     const name=nameRef.current.value;
     const email=emailRef.current.value;
 
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    console.log();
+    console.log("checkoutDone");
     if( name!="" && email.match(validRegex) && basket.length>0){
       console.log(`name : ${name}, email: ${email}`);
+      
+
+     //use createFinalCart function for the array of the final order
       basket.map((item)=>{
         dispatch({
           type:"REMOVE_FROM_BASKET",
