@@ -61,7 +61,7 @@ function Checkout_Product({title,images,price,amount,id,description,stores}) {
             </div>
             <p className="checkoutProduct__price">
                 <small>$</small>
-                <strong>{price}</strong>
+                <strong>{(price*amount).toFixed(2)}</strong>
             </p>
             <button className='checkoutProduct__remove' onClick={removeFromBasket} title="Remove from basket">remove <DeleteIcon fontSize="huge"/></button>
         </div>
