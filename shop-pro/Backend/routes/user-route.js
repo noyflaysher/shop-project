@@ -6,4 +6,6 @@ router.post("/signup", userController.signup);
 
 router.post("/login", userController.login);
 
+router.post("/checkout", userController.checkout);
+
 module.exports = router;

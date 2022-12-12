@@ -15,6 +15,14 @@ function ChosenProduct(props) {
   const productFromList = props.items.find((p) => p.id == index);
   const [state, dispatch]= useStateValue();
 
+  const getProduct =()=>{
+    fetch(`http://localhost:5000/shop/getProduct/${index}`).then((response)=>(
+      response.ok ? response.json() : { products: "" })).then((data) => {
+        setProduct(data.product);
+        console.log(data);
+      });
+  }
+
   const addToBasket=()=>{
     dispatch({
         type: "ADD_TO_BASKET",
@@ -27,18 +35,13 @@ function ChosenProduct(props) {
                 images: product.images,
                 stores: product.stores,
             },
+            title:product.title,
 
     });
    };
   
 
-  const getProduct =()=>{
-    fetch(`http://localhost:5000/shop/getProduct/${index}`).then((response)=>(
-      response.ok ? response.json() : { products: "" })).then((data) => {
-        setProduct(data.product);
-        console.log(data);
-      });
-  }
+  
 
   useEffect(()=>{
     getProduct();

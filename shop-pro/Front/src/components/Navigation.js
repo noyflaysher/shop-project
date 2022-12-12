@@ -3,6 +3,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import "./Navigation.css"
 import { Link } from "react-router-dom";
 import {useStateValue} from "./StateProvider";
+import {getBasketItemAmount} from "./reducer";
 
 
 function Navigation() {
@@ -18,7 +19,7 @@ function Navigation() {
                 <ShoppingCartIcon />
             </span>
             <span>Your Cart</span>
-            <span className="shopping__amount">{basket.length}</span>
+            <span className="shopping__amount">{getBasketItemAmount(basket)}</span>
         </button>
         </Link>
     </div>

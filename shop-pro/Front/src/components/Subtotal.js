@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react';
 import "./Subtotal.css";
 import {useStateValue} from "./StateProvider";
 import {getBasketTotal} from "./reducer";
+import {getBasketItemAmount} from "./reducer";
+
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -14,15 +16,47 @@ function Subtotal() {
   const [{basket},dispatch] = useStateValue();
   const [open,setOpen]=useState(false);
 
-  const checkoutDone=()=>{
+  const checkoutDone=async()=>{
     console.log('check');
     const name=nameRef.current.value;
     const email=emailRef.current.value;
-    if(name!="" && {basket}.length>0){
+
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    console.log();
+    if( name!="" && email.match(validRegex) && basket.length>0){
       console.log(`name : ${name}, email: ${email}`);
+      ////////////sent to db
+      // try {
+      //   const request = await sendRequest(
+      //     "http://localhost:3000/users/login",
+      //     "POST",
+      //     JSON.stringify({
+      //       email: data.get("email"),
+      //       password: data.get("password"),
+      //     }),
+      //     { "Content-Type": "application/json" }
+      //   );
+  
+      //   await fetch(`http://localhost:3000/bookmark/get/${request.user.id}`)
+      //     .then((res) => (res.ok ? res.json() : { user: [] }))
+      //     .then((data) => (request.user.bookmarks = data.user))
+      //     .then(closeFormHandler)
+      //     .then(() =>
+      //       session.setSession({
+      //         userId: request.user.id,
+      //         name: request.user.name,
+      //         email: request.user.email,
+      //         bookmarks: request.user.bookmarks,
+      //       })
+      //     );
+      // } catch (err) {
+      //   return;
+      // }
+      /////////////
       setOpen(true);
       //sent to db
     }
+    // name!="" && {basket}.length>0 &&
     
   }
 
@@ -50,7 +84,7 @@ function Subtotal() {
   return (
     <div className='subtotal'>
         <p>
-            Subtotal ({basket.length} items): <strong>$ {getBasketTotal(basket).toFixed(2)}</strong>
+            Subtotal ({getBasketItemAmount(basket)} items): <strong>$ {getBasketTotal(basket).toFixed(2)}</strong>
         </p>
         <div className="subtotal__details">
           <label className='subtotal__name'>Name</label>

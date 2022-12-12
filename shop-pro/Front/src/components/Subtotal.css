@@ -1,7 +1,8 @@
 .subtotal{
     border: 0.3rem black solid;
-    padding:1.5rem;
+    padding:3rem;
     background-color: white;
+    width:50rem;
 }
 
 .checkout__button{
