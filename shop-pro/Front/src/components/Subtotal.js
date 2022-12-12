@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react';
 import "./Subtotal.css";
 import {useStateValue} from "./StateProvider";
 import {getBasketTotal} from "./reducer";
+import {getBasketItemAmount} from "./reducer";
+import {initialState} from "./reducer";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -14,15 +16,53 @@ function Subtotal() {
   const [{basket},dispatch] = useStateValue();
   const [open,setOpen]=useState(false);
 
-  const checkoutDone=()=>{
+  const checkoutDone=async()=>{
     console.log('check');
     const name=nameRef.current.value;
     const email=emailRef.current.value;
-    if(name!="" && {basket}.length>0){
+
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    console.log();
+    if( name!="" && email.match(validRegex) && basket.length>0){
       console.log(`name : ${name}, email: ${email}`);
+      basket.map((item)=>{
+        dispatch({
+          type:"REMOVE_FROM_BASKET",
+          title:item.title,
+        })
+      })
+      ////////////sent to db
+      // try {
+      //   const request = await sendRequest(
+      //     "http://localhost:3000/users/login",
+      //     "POST",
+      //     JSON.stringify({
+      //       email: data.get("email"),
+      //       password: data.get("password"),
+      //     }),
+      //     { "Content-Type": "application/json" }
+      //   );
+  
+      //   await fetch(`http://localhost:3000/bookmark/get/${request.user.id}`)
+      //     .then((res) => (res.ok ? res.json() : { user: [] }))
+      //     .then((data) => (request.user.bookmarks = data.user))
+      //     .then(closeFormHandler)
+      //     .then(() =>
+      //       session.setSession({
+      //         userId: request.user.id,
+      //         name: request.user.name,
+      //         email: request.user.email,
+      //         bookmarks: request.user.bookmarks,
+      //       })
+      //     );
+      // } catch (err) {
+      //   return;
+      // }
+      /////////////
       setOpen(true);
       //sent to db
     }
+    // name!="" && {basket}.length>0 &&
     
   }
 
@@ -35,9 +75,9 @@ function Subtotal() {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -150%)',
-    width: 400,
-    height:160,
+    transform: 'translate(-50%, -50%)',
+    width: 500,
+    height:200,
     bgcolor: 'background.paper',
     border: '3px solid #000',
     boxShadow: 24,
@@ -50,7 +90,7 @@ function Subtotal() {
   return (
     <div className='subtotal'>
         <p>
-            Subtotal ({basket.length} items): <strong>$ {getBasketTotal(basket).toFixed(2)}</strong>
+            Subtotal ({getBasketItemAmount(basket)} items): <strong>$ {getBasketTotal(basket).toFixed(2)}</strong>
         </p>
         <div className="subtotal__details">
           <label className='subtotal__name'>Name</label>
@@ -71,7 +111,7 @@ function Subtotal() {
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h3" component="h3">
               <h3>The order is finish</h3>
-                
+              <h4>enjoy 😃</h4>
           </Typography>
         </Box>
       </Modal>

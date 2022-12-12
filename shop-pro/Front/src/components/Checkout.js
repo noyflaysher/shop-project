@@ -99,8 +99,12 @@ function Checkout() {
             {basket.map(item=>
                 <Checkout_Product
                     title = {item.title}
-                    image = {item.images[0]}
+                    images = {item.images[0]}
+                    amount={item.amount}
                     price = {item.price}
+                    description={item.description}
+                    stores={item.stores}
+                    id={item.id}
                     />)}
         </div>
 

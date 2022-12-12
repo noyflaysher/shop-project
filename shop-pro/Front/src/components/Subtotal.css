@@ -1,7 +1,8 @@
 .subtotal{
     border: 0.3rem black solid;
-    padding:1.5rem;
+    padding:3rem;
     background-color: white;
+    width:50rem;
 }
 
 .checkout__button{
@@ -43,5 +44,16 @@
   .subtotal__details input{
     font-family: inherit;
     height: 2.5rem;
+    width: 40rem;
     padding: 0.5rem;
+  }
+
+  h3,h4{
+    margin: auto;
+    text-align: center;
+    font-family:  'Lato', sans-serif;;
+  }
+
+  h4{
+    margin-top: 2rem;
   }
