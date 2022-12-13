@@ -1,10 +1,10 @@
 const HttpError = require("../model/httpError");
 const User = require("../model/user");
+const Shop = require("../model/shop");
 
-const signup = async (req, res, next) => {
-  const { email, password } = req.body;
+const checkout = async (req, res, next) => {
+  const { email, userName, shoppintCart } = req.body;
   let existingUser;
-
   try {
     existingUser = await User.findOne({ email: email });
   } catch (err) {
@@ -20,44 +20,37 @@ const signup = async (req, res, next) => {
     return next(error);
   }
 
+  let product;
+  let cart = [];
+  let pid;
+  try {
+    for (let i = 0; i < shoppintCart.length; i++) {
+      pid = shoppintCart[i].id;
+      product = await Shop.findById(pid).populate("title");
+      cart.push({
+        product: product,
+        title: product.title,
+        amount: shoppintCart[i].amount,
+      });
+
+      console.log(cart);
+    }
+  } catch (err) {}
+
   const createdUser = new User({
     email,
-    password,
-    shoppingCart: [],
+    userName,
+    shoppingCart: cart,
   });
 
   try {
     await createdUser.save();
   } catch (err) {
-    const error = new HttpError("Signing up failed, please try again", 500);
+    const error = new HttpError("add user failed, please try again", 500);
     return next(error);
   }
 
-  res.status(201).json({ user: createdUser.toObject({ getters: true }) });
+  res.status(201).json({ message: "add to basket" });
 };
 
-const login = async (req, res, next) => {
-  const { email, password } = req.body;
-  let existingUser;
-  try {
-    existingUser = await User.findOne({ email: email });
-  } catch (err) {
-    const error = new HttpError("Log in failed, please try again", 500);
-    return next(error);
-  }
-
-  if (!existingUser || existingUser.password !== password) {
-    const error = new HttpError("Invalid data, could not log in", 401);
-    return next(error);
-  }
-
-  res
-    .status(200)
-    .json({ message: "login", user: existingUser.toObject({ getters: true }) });
-};
-
-const checkout= async (req, res, next)=>{}
-
-exports.login = login;
-exports.signup = signup;
-exports.checkout=checkout;
+exports.checkout = checkout;
