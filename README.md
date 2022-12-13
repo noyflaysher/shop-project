@@ -5,7 +5,8 @@ Before the order checkout-
 ![before](https://user-images.githubusercontent.com/94534918/207295233-5bc49aec-9c3e-4f6f-ad24-42aef4cdf7d3.png)
 
 Video - 
-[videomake.webm](https://user-images.githubusercontent.com/94534918/207300958-2e09bdef-23d3-4f41-a415-4031c7d1c48a.webm)
+[videomake.webm](https://user-images.githubusercontent.com/94534918/207301307-c5b551b4-67b5-47dc-8f84-b84fbe8f438a.webm)
+
 
 
 After the order checkout -
