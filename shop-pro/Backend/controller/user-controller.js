@@ -53,4 +53,6 @@ const checkout = async (req, res, next) => {
   res.status(201).json({ message: "add to basket" });
 };
 
-exports.checkout = checkout;
+
+exports.checkout=checkout;
+

@@ -30,9 +30,7 @@ function App() {
             path="/"
             element={
               <div>
-                <>
                   <List items={productsList} />
-                </>
               </div>
             }
           />
@@ -49,6 +47,7 @@ function App() {
             element={
               <div>
                 <ChosenProduct items={productsList} />
+                </>
               </div>
             }
           />

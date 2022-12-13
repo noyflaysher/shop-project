@@ -22,8 +22,8 @@ function Navigation() {
           <span className="shopping__amount">
             {getBasketItemAmount(basket)}
           </span>
-        </button>
-      </Link>
+          </button>
+          </Link>
     </div>
   );
 }
