@@ -14,8 +14,6 @@ function App() {
       .then((response) => (response.ok ? response.json() : { products: [] }))
       .then((data) => {
         setProductsList(data.products);
-        console.log(data);
-        console.log(data.products);
       });
   };
 
@@ -26,13 +24,13 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Navigation />
         <Routes>
           <Route
             path="/"
             element={
               <div>
                 <>
-                  <Navigation />
                   <List items={productsList} />
                 </>
               </div>
@@ -50,10 +48,7 @@ function App() {
             path="/:index"
             element={
               <div>
-                <>
-                <Navigation />
                 <ChosenProduct items={productsList} />
-                </>
               </div>
             }
           />
